@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, AlertCircle, CheckCircle2 } from "lucide-react";
 import {
   Card,
   CardHeader,
@@ -13,21 +14,61 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { createClient } from "@/utils/supabase/client";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Prepared for phase 2 auth registration
-    setTimeout(() => {
+    setErrorMsg(null);
+    setSuccessMsg(null);
+
+    if (password !== confirmPassword) {
+      setErrorMsg("Passwords do not match.");
       setIsLoading(false);
-    }, 1000);
+      return;
+    }
+
+    try {
+      const supabase = createClient();
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: fullName,
+          },
+        },
+      });
+
+      if (error) {
+        setErrorMsg(error.message);
+        setIsLoading(false);
+        return;
+      }
+
+      if (data.session) {
+        router.push("/");
+        router.refresh();
+      } else {
+        setSuccessMsg(
+          "Registration successful! Please check your email inbox to verify your account or proceed to sign in."
+        );
+      }
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Failed to create account");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -35,11 +76,25 @@ export default function RegisterPage() {
       <CardHeader className="space-y-1 pb-4">
         <CardTitle className="text-2xl font-bold">Create an Account</CardTitle>
         <CardDescription>
-          Join Aura & Earth for bespoke recommendations and order tracking
+          Join Aura & Earth to configure your personal Gemini AI and manage orders
         </CardDescription>
       </CardHeader>
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4">
+          {errorMsg && (
+            <div className="flex items-center gap-2 rounded-md bg-destructive/10 p-3 text-xs text-destructive">
+              <AlertCircle className="h-4 w-4 flex-shrink-0" />
+              <span>{errorMsg}</span>
+            </div>
+          )}
+
+          {successMsg && (
+            <div className="flex items-center gap-2 rounded-md bg-brand-olive/15 p-3 text-xs text-brand-forest">
+              <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-brand-olive" />
+              <span>{successMsg}</span>
+            </div>
+          )}
+
           <div className="space-y-1">
             <label className="text-xs font-medium text-brand-forest">
               Full Name

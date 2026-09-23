@@ -17,6 +17,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { GeminiKeyCard } from "@/components/shared/gemini-key-card";
 
 export default function HomePage() {
   return (
@@ -57,6 +58,13 @@ export default function HomePage() {
               </Button>
             </Link>
           </div>
+        </Container>
+      </section>
+
+      {/* Interactive Gemini Key Configuration Section */}
+      <section className="-mt-10 relative z-20">
+        <Container size="narrow">
+          <GeminiKeyCard />
         </Container>
       </section>
 

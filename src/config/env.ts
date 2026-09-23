@@ -13,7 +13,6 @@ const envSchema = z.object({
 
   // Server-only variables
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1).optional(),
-  GEMINI_API_KEY: z.string().optional(),
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
 });
 
@@ -28,7 +27,6 @@ const processEnv = {
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: rawKey,
   NEXT_PUBLIC_SUPABASE_ANON_KEY: rawKey,
   SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
-  GEMINI_API_KEY: process.env.GEMINI_API_KEY,
   NODE_ENV: process.env.NODE_ENV,
 };
 
