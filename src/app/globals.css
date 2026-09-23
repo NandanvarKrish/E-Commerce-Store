@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cornsilk Primary Background */
+    --background: 51 90% 94%;
+    /* Black Forest Primary Dark Text */
+    --foreground: 87 38% 12%;
+
+    --card: 51 80% 97%;
+    --card-foreground: 87 38% 12%;
+
+    --popover: 51 80% 97%;
+    --popover-foreground: 87 38% 12%;
+
+    /* Olive Leaf Primary Action */
+    --primary: 74 31% 33%;
+    --primary-foreground: 51 90% 94%;
+
+    /* Sunlit Clay Secondary Accent */
+    --secondary: 32 64% 62%;
+    --secondary-foreground: 87 38% 12%;
+
+    --muted: 51 30% 88%;
+    --muted-foreground: 87 20% 36%;
+
+    /* Copperwood Strong Accent */
+    --accent: 29 67% 44%;
+    --accent-foreground: 51 90% 94%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 51 90% 94%;
+
+    --border: 87 20% 80%;
+    --input: 87 20% 80%;
+    --ring: 74 31% 33%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}

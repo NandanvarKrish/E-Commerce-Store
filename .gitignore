@@ -1,0 +1,40 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing & Coverage
+/coverage
+
+# Next.js build output
+/.next/
+/out/
+
+# Production build
+/build
+/dist
+*.tsbuildinfo
+
+# Misc / OS
+.DS_Store
+*.pem
+*.log
+
+# Sensitive credentials & environment files
+database_password.txt
+.env
+.env*.local
+!.env.example
+
+# Vercel & Turbopack
+.vercel
+.turbo
+
+# IDE
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
