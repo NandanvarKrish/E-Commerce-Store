@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight, AlertCircle, Sparkles } from "lucide-react";
+import { ArrowRight, AlertCircle, Sparkles, ShieldCheck } from "lucide-react";
 import {
   Card,
   CardHeader,
@@ -14,10 +14,13 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { createClient } from "@/utils/supabase/client";
+import { authService } from "@/services/auth.service";
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirectTo");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -28,54 +31,62 @@ export default function LoginPage() {
     setIsLoading(true);
     setErrorMsg(null);
 
-    try {
-      const supabase = createClient();
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+    const response = await authService.signInWithPassword(email, password);
 
-      if (error) {
-        // If Supabase backend doesn't have this user yet, allow demo simulation
-        if (email.includes("@")) {
-          router.push("/account");
-          return;
-        }
-        setErrorMsg(error.message);
-        setIsLoading(false);
-        return;
-      }
-
-      if (data.user) {
-        router.push("/account");
-        router.refresh();
-      }
-    } catch (_err) {
-      // Graceful fallback for UI testing
-      router.push("/account");
-    } finally {
+    if (!response.success || !response.data) {
+      setErrorMsg(response.error?.message || "Invalid email or password.");
       setIsLoading(false);
+      return;
     }
+
+    // Role-aware redirect or respect requested redirect target
+    const userRole = response.data.app_metadata?.role;
+    let destination = redirectTo && redirectTo.startsWith("/") ? redirectTo : "/account";
+
+    // If logging into admin account and no specific redirect, send directly to /admin
+    if (userRole === "admin" && (!redirectTo || redirectTo === "/account")) {
+      destination = "/admin";
+    }
+
+    router.push(destination);
+    router.refresh();
   };
 
-  const handleDemoFill = () => {
-    setEmail("eleanor.vance@mindfulliving.org");
-    setPassword("Sanctuary2026!");
+  const fillCustomerCredentials = () => {
+    setEmail("customer@auraearth.com");
+    setPassword("Password123!");
+    setErrorMsg(null);
+  };
+
+  const fillAdminCredentials = () => {
+    setEmail("admin@auraearth.com");
+    setPassword("AdminPassword123!");
+    setErrorMsg(null);
   };
 
   return (
     <Card className="border-brand-forest/15 shadow-md">
       <CardHeader className="space-y-1 pb-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <CardTitle className="text-2xl font-bold">Sign In</CardTitle>
-          <button
-            type="button"
-            onClick={handleDemoFill}
-            className="inline-flex items-center gap-1 rounded bg-brand-clay/20 px-2 py-1 font-mono text-[10px] font-medium text-brand-forest hover:bg-brand-clay/30 transition-colors"
-          >
-            <Sparkles className="h-3 w-3 text-brand-copper" />
-            <span>Fill Demo Credentials</span>
-          </button>
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <button
+              type="button"
+              onClick={fillCustomerCredentials}
+              className="inline-flex items-center gap-1 rounded bg-brand-clay/20 px-2 py-1 font-mono text-[10px] font-medium text-brand-forest hover:bg-brand-clay/30 transition-colors"
+            >
+              <Sparkles className="h-3 w-3 text-brand-copper" />
+              <span>Demo Customer</span>
+            </button>
+            <button
+              type="button"
+              onClick={fillAdminCredentials}
+              className="inline-flex items-center gap-1 rounded bg-brand-olive/20 px-2 py-1 font-mono text-[10px] font-medium text-brand-forest hover:bg-brand-olive/30 transition-colors"
+            >
+              <ShieldCheck className="h-3 w-3 text-brand-olive" />
+              <span>Demo Admin</span>
+            </button>
+          </div>
         </div>
         <CardDescription>
           Enter your credentials to access your sanctuary account and orders
@@ -96,7 +107,7 @@ export default function LoginPage() {
             </label>
             <Input
               type="email"
-              placeholder="eleanor.vance@mindfulliving.org"
+              placeholder="customer@auraearth.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
