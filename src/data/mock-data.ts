@@ -1,48 +1,5 @@
-export interface ProductReview {
-  id: string;
-  author: string;
-  rating: number;
-  date: string;
-  title: string;
-  comment: string;
-  verified: boolean;
-}
-
-export interface Product {
-  id: string;
-  slug: string;
-  name: string;
-  category: string;
-  categorySlug: string;
-  price: number;
-  compareAtPrice?: number;
-  rating: number;
-  reviewsCount: number;
-  badge?: "Bestseller" | "New" | "Sale" | "Artisanal";
-  images: string[];
-  description: string;
-  shortDescription: string;
-  features: string[];
-  dimensions: string;
-  materials: string;
-  care: string;
-  inStock: boolean;
-  stockCount: number;
-  sku: string;
-  colors?: { name: string; hex: string }[];
-  sizes?: string[];
-  tags: string[];
-  reviews: ProductReview[];
-}
-
-export interface Category {
-  id: string;
-  slug: string;
-  name: string;
-  description: string;
-  image: string;
-  itemCount: number;
-}
+import type { Product, ProductReview, Category } from "@/types/catalog.types";
+export type { Product, ProductReview, Category };
 
 export interface OrderItem {
   id: string;
