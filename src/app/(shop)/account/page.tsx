@@ -69,11 +69,11 @@ export default function AccountPage() {
     }
 
     // Fetch profile
-    const { data: prof } = await supabase
+    const { data: prof } = (await supabase
       .from("profiles")
       .select("*")
       .eq("id", user.id)
-      .single();
+      .single()) as { data: Profile | null; error: unknown };
 
     if (prof) {
       setProfile(prof);
@@ -133,8 +133,8 @@ export default function AccountPage() {
     setIsAddingAddr(true);
 
     const supabase = createClient();
-    const { data, error } = await supabase
-      .from("addresses")
+    const { data, error } = (await (supabase
+      .from("addresses") as any)
       .insert({
         user_id: profile.id,
         full_name: newAddrFullName || profile.full_name || "Resident",
@@ -147,7 +147,7 @@ export default function AccountPage() {
         is_default: addresses.length === 0,
       })
       .select()
-      .single();
+      .single()) as { data: Address | null; error: unknown };
 
     if (!error && data) {
       setAddresses((prev) => [data, ...prev]);

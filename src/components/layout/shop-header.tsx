@@ -54,11 +54,14 @@ export function ShopHeader() {
     const { data: { user } } = await supabase.auth.getUser();
 
     if (user) {
-      const { data: profile } = await supabase
+      const { data: profile } = (await supabase
         .from("profiles")
         .select("full_name, role")
         .eq("id", user.id)
-        .single();
+        .single()) as {
+        data: { full_name?: string | null; role?: "customer" | "admin" } | null;
+        error: unknown;
+      };
 
       setCurrentUser({
         id: user.id,

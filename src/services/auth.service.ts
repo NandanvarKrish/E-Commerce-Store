@@ -39,11 +39,11 @@ export class AuthService extends BaseService {
 
       if (userError || !user) return null;
 
-      const { data, error } = await this.supabase
+      const { data, error } = (await this.supabase
         .from("profiles")
         .select("*")
         .eq("id", user.id)
-        .single();
+        .single()) as { data: Profile | null; error: unknown };
 
       if (error) throw error;
       return data;
@@ -132,12 +132,12 @@ export class AuthService extends BaseService {
 
       if (userError || !user) throw new Error("Authentication required");
 
-      const { data, error } = await this.supabase
-        .from("profiles")
+      const { data, error } = (await (this.supabase
+        .from("profiles") as any)
         .update(updates)
         .eq("id", user.id)
         .select()
-        .single();
+        .single()) as { data: Profile; error: unknown };
 
       if (error) throw error;
       return data;

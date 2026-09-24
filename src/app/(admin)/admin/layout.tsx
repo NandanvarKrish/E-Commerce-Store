@@ -24,11 +24,11 @@ export default async function AdminLayout({
   // Server-side authoritative role check
   let isAdmin = user.app_metadata?.role === "admin";
   if (!isAdmin) {
-    const { data: profile } = await supabase
+    const { data: profile } = (await supabase
       .from("profiles")
       .select("role")
       .eq("id", user.id)
-      .single();
+      .single()) as { data: { role?: string } | null; error: unknown };
     isAdmin = profile?.role === "admin";
   }
 
