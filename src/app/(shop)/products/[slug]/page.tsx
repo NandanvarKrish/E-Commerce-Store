@@ -26,7 +26,13 @@ import { Price } from "@/components/ui/price";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { ProductCard } from "@/components/shared/product-card";
 import { productService } from "@/services/product.service";
 import { useCartStore } from "@/stores/use-cart-store";
