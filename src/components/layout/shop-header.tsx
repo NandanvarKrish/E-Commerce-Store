@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Menu,
   X,
@@ -12,7 +12,6 @@ import {
   User,
   ShieldCheck,
   Package,
-  SlidersHorizontal,
   LogOut,
   ChevronDown,
 } from "lucide-react";
@@ -29,46 +28,79 @@ import {
   DropdownSeparator,
 } from "@/components/ui/dropdown";
 import { createClient } from "@/utils/supabase/client";
+import { authService } from "@/services/auth.service";
 import { cn } from "@/lib/utils";
+
+interface CurrentUserState {
+  id: string;
+  email?: string;
+  fullName?: string;
+  role?: "customer" | "admin";
+}
 
 export function ShopHeader() {
   const pathname = usePathname();
+  const router = useRouter();
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu, setSearchOpen, setCartDrawerOpen } =
     useUIStore();
   const { getTotalItems } = useCartStore();
   const { items: wishlistItems } = useWishlistStore();
 
   const [mounted, setMounted] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState<{ email?: string } | null>(null);
+  const [currentUser, setCurrentUser] = React.useState<CurrentUserState | null>(null);
+
+  const fetchUserData = React.useCallback(async () => {
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (user) {
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("full_name, role")
+        .eq("id", user.id)
+        .single();
+
+      setCurrentUser({
+        id: user.id,
+        email: user.email,
+        fullName: profile?.full_name || (user.user_metadata?.full_name as string) || "Member",
+        role: (profile?.role || (user.app_metadata?.role as "customer" | "admin") || "customer"),
+      });
+    } else {
+      setCurrentUser(null);
+    }
+  }, []);
 
   React.useEffect(() => {
     setMounted(true);
-    const supabase = createClient();
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      if (user) setCurrentUser({ email: user.email });
-    });
+    fetchUserData();
 
+    const supabase = createClient();
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_, session) => {
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user) {
-        setCurrentUser({ email: session.user.email });
+        fetchUserData();
       } else {
         setCurrentUser(null);
       }
     });
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [fetchUserData]);
 
   const totalCartCount = mounted ? getTotalItems() : 0;
   const totalWishlistCount = mounted ? wishlistItems.length : 0;
 
   const handleSignOut = async () => {
-    const supabase = createClient();
-    await supabase.auth.signOut();
+    await authService.signOut();
     setCurrentUser(null);
+    closeMobileMenu();
+    router.push("/");
+    router.refresh();
   };
+
+  const isAdmin = currentUser?.role === "admin";
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-brand-forest/10 bg-brand-cornsilk/90 backdrop-blur-md transition-colors">
@@ -155,8 +187,19 @@ export function ShopHeader() {
               {currentUser ? (
                 <>
                   <div className="px-2.5 py-1.5 text-xs">
-                    <p className="font-semibold text-brand-forest truncate">{currentUser.email}</p>
-                    <p className="font-mono text-[10px] text-brand-olive">Signed In Member</p>
+                    <p className="font-semibold text-brand-forest truncate">{currentUser.fullName}</p>
+                    <p className="font-mono text-[10px] text-muted-foreground truncate">{currentUser.email}</p>
+                    <div className="mt-1">
+                      {isAdmin ? (
+                        <span className="inline-flex items-center gap-1 rounded bg-brand-clay/20 px-1.5 py-0.5 font-mono text-[9px] font-bold text-brand-copper">
+                          <ShieldCheck className="h-3 w-3" /> Admin Staff
+                        </span>
+                      ) : (
+                        <span className="inline-block rounded bg-brand-olive/15 px-1.5 py-0.5 font-mono text-[9px] font-medium text-brand-olive">
+                          Sanctuary Member
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <DropdownSeparator />
                   <Link href="/account">
@@ -171,12 +214,14 @@ export function ShopHeader() {
                       <span>Order History</span>
                     </DropdownItem>
                   </Link>
-                  <Link href="/admin">
-                    <DropdownItem>
-                      <ShieldCheck className="h-4 w-4 text-brand-clay" />
-                      <span>Admin Portal</span>
-                    </DropdownItem>
-                  </Link>
+                  {isAdmin && (
+                    <Link href="/admin">
+                      <DropdownItem>
+                        <ShieldCheck className="h-4 w-4 text-brand-clay" />
+                        <span>Admin Portal</span>
+                      </DropdownItem>
+                    </Link>
+                  )}
                   <DropdownSeparator />
                   <DropdownItem onClick={handleSignOut} destructive>
                     <LogOut className="h-4 w-4" />
@@ -198,20 +243,8 @@ export function ShopHeader() {
                   </Link>
                   <Link href="/register">
                     <DropdownItem>
-                      <SlidersHorizontal className="h-4 w-4 text-brand-copper" />
+                      <Package className="h-4 w-4 text-brand-copper" />
                       <span>Create Account</span>
-                    </DropdownItem>
-                  </Link>
-                  <Link href="/orders">
-                    <DropdownItem>
-                      <Package className="h-4 w-4 text-muted-foreground" />
-                      <span>Order Lookup</span>
-                    </DropdownItem>
-                  </Link>
-                  <Link href="/admin">
-                    <DropdownItem>
-                      <ShieldCheck className="h-4 w-4 text-brand-clay" />
-                      <span>Admin Portal</span>
                     </DropdownItem>
                   </Link>
                 </>
@@ -293,14 +326,60 @@ export function ShopHeader() {
                 )}
               </Link>
 
-              <Link
-                href="/admin"
-                onClick={closeMobileMenu}
-                className="flex items-center gap-2 py-2 text-sm font-mono text-brand-copper"
-              >
-                <ShieldCheck className="h-4 w-4" />
-                <span>Admin Portal</span>
-              </Link>
+              {currentUser ? (
+                <>
+                  <Link
+                    href="/account"
+                    onClick={closeMobileMenu}
+                    className="flex items-center gap-2 py-2 text-sm text-brand-forest"
+                  >
+                    <User className="h-4 w-4 text-brand-olive" />
+                    <span>Account ({currentUser.fullName})</span>
+                  </Link>
+                  <Link
+                    href="/orders"
+                    onClick={closeMobileMenu}
+                    className="flex items-center gap-2 py-2 text-sm text-brand-forest"
+                  >
+                    <Package className="h-4 w-4 text-brand-copper" />
+                    <span>Orders</span>
+                  </Link>
+                  {isAdmin && (
+                    <Link
+                      href="/admin"
+                      onClick={closeMobileMenu}
+                      className="flex items-center gap-2 py-2 text-sm font-mono text-brand-copper"
+                    >
+                      <ShieldCheck className="h-4 w-4" />
+                      <span>Admin Portal</span>
+                    </Link>
+                  )}
+                  <button
+                    onClick={handleSignOut}
+                    className="flex items-center gap-2 py-2 text-sm text-destructive hover:underline text-left"
+                  >
+                    <LogOut className="h-4 w-4" />
+                    <span>Sign Out</span>
+                  </button>
+                </>
+              ) : (
+                <div className="flex gap-2 pt-2">
+                  <Link
+                    href="/login"
+                    onClick={closeMobileMenu}
+                    className="flex-1 text-center py-2 rounded-md bg-brand-forest text-brand-cornsilk text-sm font-medium"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/register"
+                    onClick={closeMobileMenu}
+                    className="flex-1 text-center py-2 rounded-md border border-brand-forest/20 text-brand-forest text-sm font-medium"
+                  >
+                    Register
+                  </Link>
+                </div>
+              )}
             </div>
           </Container>
         </div>
