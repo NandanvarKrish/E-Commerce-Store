@@ -44,6 +44,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       categories: {
         Row: {
@@ -76,6 +77,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       brands: {
         Row: {
@@ -108,6 +110,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       products: {
         Row: {
@@ -167,6 +170,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       product_variants: {
         Row: {
@@ -202,6 +206,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       product_images: {
         Row: {
@@ -231,6 +236,7 @@ export interface Database {
           is_primary?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       inventory: {
         Row: {
@@ -263,6 +269,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       carts: {
         Row: {
@@ -286,6 +293,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       cart_items: {
         Row: {
@@ -315,6 +323,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       wishlists: {
         Row: {
@@ -341,6 +350,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       wishlist_items: {
         Row: {
@@ -361,6 +371,7 @@ export interface Database {
           product_id?: string;
           created_at?: string;
         };
+        Relationships: [];
       };
       addresses: {
         Row: {
@@ -414,6 +425,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       orders: {
         Row: {
@@ -473,6 +485,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       order_items: {
         Row: {
@@ -514,6 +527,7 @@ export interface Database {
           total?: number;
           created_at?: string;
         };
+        Relationships: [];
       };
       reviews: {
         Row: {
@@ -552,6 +566,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       notifications: {
         Row: {
@@ -584,6 +599,7 @@ export interface Database {
           type?: string;
           created_at?: string;
         };
+        Relationships: [];
       };
     };
     Views: {
@@ -599,6 +615,9 @@ export interface Database {
       user_role: UserRole;
       order_status: OrderStatus;
       payment_status: PaymentStatus;
+    };
+    CompositeTypes: {
+      [_ in never]: never;
     };
   };
 }
