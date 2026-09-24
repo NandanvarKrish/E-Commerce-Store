@@ -40,14 +40,45 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
   isLoading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, isLoading = false, children, disabled, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      isLoading = false,
+      children,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    const computedClass = cn(buttonVariants({ variant, size, className }));
+
+    if (asChild && React.isValidElement(children)) {
+      const child = children as React.ReactElement<{
+        className?: string;
+        children?: React.ReactNode;
+      }>;
+      return React.cloneElement(child, {
+        className: cn(computedClass, child.props.className),
+        children: (
+          <>
+            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin inline" />}
+            {child.props.children}
+          </>
+        ),
+      });
+    }
+
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={computedClass}
         ref={ref}
         disabled={isLoading || disabled}
         {...props}
