@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Package, Truck, ArrowRight, CheckCircle2, Clock } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -9,14 +8,47 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { EmptyState } from "@/components/shared/empty-state";
-import { MOCK_ORDERS } from "@/data/mock-data";
 import { formatCurrency } from "@/utils/formatters";
+import { createClient } from "@/utils/supabase/client";
+import type { Database } from "@/types/database.types";
+
+type OrderRow = Database["public"]["Tables"]["orders"]["Row"] & {
+  order_items?: Database["public"]["Tables"]["order_items"]["Row"][];
+};
 
 export default function OrdersPage() {
-  const [filter, setFilter] = React.useState<"all" | "Processing" | "Delivered">("all");
+  const [filter, setFilter] = React.useState<"all" | "pending" | "processing" | "delivered">("all");
+  const [orders, setOrders] = React.useState<OrderRow[]>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    async function loadOrders() {
+      setIsLoading(true);
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+
+      if (!user) {
+        setIsLoading(false);
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("orders")
+        .select("*, order_items(*)")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
+
+      if (!error && data) {
+        setOrders(data as OrderRow[]);
+      }
+      setIsLoading(false);
+    }
+
+    loadOrders();
+  }, []);
 
   const filteredOrders =
-    filter === "all" ? MOCK_ORDERS : MOCK_ORDERS.filter((o) => o.status === filter);
+    filter === "all" ? orders : orders.filter((o) => o.status === filter);
 
   return (
     <div className="pb-24">
@@ -44,12 +76,13 @@ export default function OrdersPage() {
         <div className="flex items-center gap-2 border-b border-brand-forest/10 pb-4">
           {[
             { label: "All Orders", value: "all" },
-            { label: "Processing", value: "Processing" },
-            { label: "Delivered", value: "Delivered" },
+            { label: "Pending", value: "pending" },
+            { label: "Processing", value: "processing" },
+            { label: "Delivered", value: "delivered" },
           ].map((tab) => (
             <button
               key={tab.value}
-              onClick={() => setFilter(tab.value as "all" | "Processing" | "Delivered")}
+              onClick={() => setFilter(tab.value as typeof filter)}
               className={`rounded-full px-4 py-1.5 font-mono text-xs transition-colors ${
                 filter === tab.value
                   ? "bg-brand-forest text-brand-cornsilk font-semibold shadow-sm"
@@ -61,13 +94,17 @@ export default function OrdersPage() {
           ))}
         </div>
 
-        {/* Order Cards */}
-        {filteredOrders.length === 0 ? (
+        {/* Loading or Orders List */}
+        {isLoading ? (
+          <div className="py-12 text-center text-xs font-mono text-muted-foreground">
+            Retrieving orders from sanctuary database...
+          </div>
+        ) : filteredOrders.length === 0 ? (
           <EmptyState
             title="No orders found"
             description="You don't have any orders matching the chosen status."
-            actionLabel="View All Orders"
-            onAction={() => setFilter("all")}
+            actionLabel="Explore Catalog"
+            onAction={() => window.location.href = "/products"}
             icon={<Package className="h-6 w-6 text-brand-forest/60" />}
           />
         ) : (
@@ -82,90 +119,60 @@ export default function OrdersPage() {
                   <div className="flex items-center gap-4 flex-wrap">
                     <div>
                       <span className="text-muted-foreground block text-[10px]">ORDER ID</span>
-                      <span className="font-bold text-brand-forest">#{order.id}</span>
+                      <span className="font-bold text-brand-forest">#{order.order_number}</span>
                     </div>
                     <div>
                       <span className="text-muted-foreground block text-[10px]">DATE PLACED</span>
-                      <span className="text-brand-forest">{order.date}</span>
+                      <span className="text-brand-forest">
+                        {new Date(order.created_at).toLocaleDateString()}
+                      </span>
                     </div>
                     <div>
                       <span className="text-muted-foreground block text-[10px]">TOTAL AMOUNT</span>
-                      <span className="font-bold text-brand-forest">{formatCurrency(order.total)}</span>
+                      <span className="font-bold text-brand-forest">
+                        {formatCurrency(Number(order.total_amount))}
+                      </span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
                     <Badge
-                      variant={order.status === "Delivered" ? "default" : "secondary"}
-                      className="gap-1 font-mono text-xs"
+                      variant={order.status === "delivered" ? "default" : "secondary"}
+                      className="gap-1 font-mono text-xs capitalize"
                     >
-                      {order.status === "Delivered" ? (
-                        <CheckCircle2 className="h-3 w-3 text-brand-cornsilk" />
+                      {order.status === "delivered" ? (
+                        <CheckCircle2 className="h-3 w-3" />
                       ) : (
-                        <Clock className="h-3 w-3 text-brand-copper" />
+                        <Clock className="h-3 w-3" />
                       )}
                       <span>{order.status}</span>
                     </Badge>
                   </div>
                 </div>
 
-                {/* Order Items List */}
-                <div className="divide-y divide-brand-forest/10 p-4 sm:p-6 space-y-4">
-                  {order.items.map((item) => (
-                    <div key={item.id} className="flex gap-4 pt-4 first:pt-0">
-                      <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-brand-forest/5">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          sizes="80px"
-                          className="object-cover"
-                        />
-                      </div>
-
-                      <div className="flex flex-1 flex-col justify-between">
+                {/* Items in Order */}
+                <div className="p-4 sm:p-6 space-y-4">
+                  {order.order_items && order.order_items.length > 0 ? (
+                    order.order_items.map((item) => (
+                      <div
+                        key={item.id}
+                        className="flex items-center justify-between gap-4 py-2 border-b last:border-0 border-brand-forest/10"
+                      >
                         <div>
-                          <Link
-                            href={`/products/${item.slug}`}
-                            className="text-sm font-semibold text-brand-forest hover:text-brand-olive transition-colors line-clamp-1"
-                          >
-                            {item.name}
-                          </Link>
-                          {item.variant && (
-                            <p className="font-mono text-xs text-muted-foreground mt-0.5">
-                              {item.variant}
-                            </p>
+                          <p className="font-medium text-sm text-brand-forest">{item.product_title}</p>
+                          {item.variant_title && (
+                            <p className="text-xs text-muted-foreground">{item.variant_title}</p>
                           )}
-                          <p className="font-mono text-xs text-muted-foreground mt-0.5">
-                            Qty: {item.quantity} × {formatCurrency(item.price)}
-                          </p>
+                          <p className="text-xs font-mono text-muted-foreground">Qty: {item.quantity}</p>
                         </div>
+                        <span className="font-mono text-sm font-bold text-brand-forest">
+                          {formatCurrency(Number(item.total))}
+                        </span>
                       </div>
-
-                      <div className="text-right font-mono text-sm font-bold text-brand-forest">
-                        {formatCurrency(item.price * item.quantity)}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Order Bottom Footer */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-brand-forest/10 bg-brand-cornsilk/30 p-4 sm:px-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
-                    <Truck className="h-4 w-4 text-brand-olive" />
-                    <span>
-                      Carrier: {order.carrier} (Tracking: {order.trackingNumber})
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <Button variant="default" size="sm" asChild className="text-xs">
-                      <Link href={`/orders/${order.id}`}>
-                        <span>View Order Details</span>
-                        <ArrowRight className="h-3.5 w-3.5 ml-1" />
-                      </Link>
-                    </Button>
-                  </div>
+                    ))
+                  ) : (
+                    <p className="text-xs text-muted-foreground">Items processing</p>
+                  )}
                 </div>
               </div>
             ))}
