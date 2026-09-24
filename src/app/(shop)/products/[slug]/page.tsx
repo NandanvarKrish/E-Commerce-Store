@@ -709,11 +709,11 @@ export default function ProductDetailPage() {
 
       {/* Write a Review Modal */}
       <Dialog open={isReviewDialogOpen} onOpenChange={setIsReviewDialogOpen}>
-        <DialogContent
-          title="Share Your Experience"
-          description={`Reviewing ${product.name}`}
-          className="max-w-md"
-        >
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Share Your Experience</DialogTitle>
+            <DialogDescription>Reviewing {product.name}</DialogDescription>
+          </DialogHeader>
           <form onSubmit={handleSubmitReview} className="space-y-4 pt-2">
             {reviewError && (
               <div className="flex items-start gap-2 p-3 rounded-lg bg-rose-50 text-rose-800 text-xs">

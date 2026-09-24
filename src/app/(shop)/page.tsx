@@ -18,15 +18,44 @@ import { Badge } from "@/components/ui/badge";
 import { ProductCard } from "@/components/shared/product-card";
 import { CategoryCard } from "@/components/shared/category-card";
 import { GeminiKeyCard } from "@/components/shared/gemini-key-card";
+import { productService } from "@/services/product.service";
+import type { Product, Category } from "@/types/catalog.types";
 import { PRODUCTS, CATEGORIES } from "@/data/mock-data";
 
 export default function HomePage() {
   const [selectedCategoryTab, setSelectedCategoryTab] = React.useState<string>("all");
+  const [allProducts, setAllProducts] = React.useState<Product[]>(PRODUCTS);
+  const [categories, setCategories] = React.useState<Category[]>(CATEGORIES);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+
+  React.useEffect(() => {
+    async function loadCatalog() {
+      try {
+        const [prodRes, cats] = await Promise.all([
+          productService.getProducts({ limit: 12 }),
+          productService.getCategories(),
+        ]);
+        if (prodRes.products.length > 0) {
+          setAllProducts(prodRes.products);
+        }
+        if (cats.length > 0) {
+          setCategories(cats);
+        }
+      } catch (err) {
+        console.error("Failed to load catalog for homepage:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadCatalog();
+  }, []);
 
   const filteredFeaturedProducts =
     selectedCategoryTab === "all"
-      ? PRODUCTS.slice(0, 4)
-      : PRODUCTS.filter((p) => p.categorySlug === selectedCategoryTab).slice(0, 4);
+      ? allProducts.slice(0, 4)
+      : allProducts.filter((p) => p.categorySlug === selectedCategoryTab).slice(0, 4);
+
+  const seasonalFavorites = allProducts.slice(4, 8);
 
   return (
     <div className="flex flex-col space-y-16 sm:space-y-24 pb-20">
@@ -169,7 +198,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {CATEGORIES.slice(0, 4).map((category) => (
+            {categories.slice(0, 4).map((category) => (
               <CategoryCard key={category.id} category={category} />
             ))}
           </div>
@@ -224,7 +253,7 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <Button size="lg" variant="outline" asChild className="gap-2">
               <Link href="/products">
-                <span>View Full Catalog ({PRODUCTS.length} Items)</span>
+                <span>View Full Catalog ({allProducts.length} Items)</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -268,31 +297,33 @@ export default function HomePage() {
       </section>
 
       {/* 7. TRENDING / NEW ARRIVALS GRID */}
-      <section>
-        <Container>
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <span className="font-accent text-sm text-brand-copper">Trending Now</span>
-              <h2 className="font-display text-3xl font-bold text-brand-forest">
-                Seasonal Favorites
-              </h2>
+      {seasonalFavorites.length > 0 && (
+        <section>
+          <Container>
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <span className="font-accent text-sm text-brand-copper">Trending Now</span>
+                <h2 className="font-display text-3xl font-bold text-brand-forest">
+                  Seasonal Favorites
+                </h2>
+              </div>
+              <Link
+                href="/products"
+                className="text-xs font-mono text-brand-olive hover:underline inline-flex items-center gap-1"
+              >
+                <span>View All</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </div>
-            <Link
-              href="/products"
-              className="text-xs font-mono text-brand-olive hover:underline inline-flex items-center gap-1"
-            >
-              <span>View All</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PRODUCTS.slice(4, 8).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </Container>
-      </section>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {seasonalFavorites.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
     </div>
   );
 }
