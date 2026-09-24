@@ -1,0 +1,460 @@
+{
+  "nodes": [
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_skill",
+      "label": "Supabase Postgres Best Practices Skill",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "supabase",
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "label": "Postgres Rule Categories",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_template",
+      "label": "Postgres Reference Template",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_contributing",
+      "label": "Writing Guidelines for Postgres References",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_contributing.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_advanced_full_text_search",
+      "label": "Use tsvector for Full-Text Search",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/advanced-full-text-search.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_advanced_jsonb_indexing",
+      "label": "Index JSONB Columns for Efficient Querying",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_conn_idle_timeout",
+      "label": "Configure Idle Connection Timeouts",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-idle-timeout.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_conn_limits",
+      "label": "Set Appropriate Connection Limits",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-limits.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_conn_pooling",
+      "label": "Use Connection Pooling for All Applications",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-pooling.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_conn_prepared_statements",
+      "label": "Use Prepared Statements Correctly with Pooling",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-prepared-statements.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_data_batch_inserts",
+      "label": "Batch INSERT Statements for Bulk Data",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-batch-inserts.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_data_n_plus_one",
+      "label": "Eliminate N+1 Queries with Batch Loading",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-n-plus-one.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_data_pagination",
+      "label": "Use Cursor-Based Pagination Instead of OFFSET",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-pagination.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_data_upsert",
+      "label": "Use UPSERT for Insert-or-Update Operations",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-upsert.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_lock_advisory",
+      "label": "Use Advisory Locks for Application-Level Locking",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-advisory.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_lock_deadlock_prevention",
+      "label": "Prevent Deadlocks with Consistent Lock Ordering",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_lock_short_transactions",
+      "label": "Keep Transactions Short to Reduce Lock Contention",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-short-transactions.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_lock_skip_locked",
+      "label": "Use SKIP LOCKED for Non-Blocking Queue Processing",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-skip-locked.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_monitor_explain_analyze",
+      "label": "Use EXPLAIN ANALYZE to Diagnose Slow Queries",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_monitor_pg_stat_statements",
+      "label": "Enable pg_stat_statements for Query Analysis",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_skill",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_advanced_full_text_search",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/advanced-full-text-search.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_advanced_jsonb_indexing",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_conn_idle_timeout",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-idle-timeout.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_conn_limits",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-limits.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_conn_pooling",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-pooling.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_conn_prepared_statements",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-prepared-statements.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_data_batch_inserts",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-batch-inserts.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_data_n_plus_one",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-n-plus-one.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_data_pagination",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-pagination.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_data_upsert",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-upsert.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_lock_advisory",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-advisory.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_lock_deadlock_prevention",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_lock_short_transactions",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-short-transactions.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_lock_skip_locked",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-skip-locked.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_monitor_explain_analyze",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_monitor_pg_stat_statements",
+      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_conn_pooling",
+      "target": "agents_skills_supabase_postgres_best_practices_references_conn_prepared_statements",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-pooling.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_data_batch_inserts",
+      "target": "agents_skills_supabase_postgres_best_practices_references_data_n_plus_one",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-batch-inserts.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "connection_management_cluster",
+      "label": "Connection Management Best Practices",
+      "nodes": [
+        "agents_skills_supabase_postgres_best_practices_references_conn_idle_timeout",
+        "agents_skills_supabase_postgres_best_practices_references_conn_limits",
+        "agents_skills_supabase_postgres_best_practices_references_conn_pooling",
+        "agents_skills_supabase_postgres_best_practices_references_conn_prepared_statements"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md"
+    },
+    {
+      "id": "concurrency_locking_cluster",
+      "label": "Concurrency and Locking Best Practices",
+      "nodes": [
+        "agents_skills_supabase_postgres_best_practices_references_lock_advisory",
+        "agents_skills_supabase_postgres_best_practices_references_lock_deadlock_prevention",
+        "agents_skills_supabase_postgres_best_practices_references_lock_short_transactions",
+        "agents_skills_supabase_postgres_best_practices_references_lock_skip_locked"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md"
+    },
+    {
+      "id": "monitoring_diagnostics_cluster",
+      "label": "Monitoring and Diagnostics Best Practices",
+      "nodes": [
+        "agents_skills_supabase_postgres_best_practices_references_monitor_explain_analyze",
+        "agents_skills_supabase_postgres_best_practices_references_monitor_pg_stat_statements"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
