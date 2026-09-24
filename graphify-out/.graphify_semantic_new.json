@@ -219,6 +219,138 @@
       "captured_at": null,
       "author": null,
       "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_query_composite_indexes",
+      "label": "Create Composite Indexes for Multi-Column Queries",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_query_covering_indexes",
+      "label": "Use Covering Indexes to Avoid Table Lookups",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-covering-indexes.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_query_index_types",
+      "label": "Choose the Right Index Type for Your Data",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-index-types.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_query_missing_indexes",
+      "label": "Add Indexes on WHERE and JOIN Columns",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-missing-indexes.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_query_partial_indexes",
+      "label": "Use Partial Indexes for Filtered Queries",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-partial-indexes.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_schema_constraints",
+      "label": "Add Constraints Safely in Migrations",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-constraints.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_schema_data_types",
+      "label": "Choose Appropriate Data Types",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-data-types.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_schema_foreign_key_indexes",
+      "label": "Index Foreign Key Columns",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_schema_lowercase_identifiers",
+      "label": "Use Lowercase Identifiers for Compatibility",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_schema_partitioning",
+      "label": "Partition Large Tables for Better Performance",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-partitioning.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_schema_primary_keys",
+      "label": "Select Optimal Primary Key Strategy",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-primary-keys.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_security_privileges",
+      "label": "Apply Principle of Least Privilege",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-privileges.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_security_rls_basics",
+      "label": "Enable Row Level Security for Multi-Tenant Data",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-basics.md"
+    },
+    {
+      "id": "agents_skills_supabase_postgres_best_practices_references_security_rls_performance",
+      "label": "Optimize RLS Policies for Performance",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-performance.md"
+    },
+    {
+      "id": "agents_skills_supabase_changelog",
+      "label": "Supabase Skill Changelog",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/CHANGELOG.md"
+    },
+    {
+      "id": "agents_skills_supabase_skill",
+      "label": "Supabase Skill Definition",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/SKILL.md"
+    },
+    {
+      "id": "agents_skills_supabase_assets_feedback_issue_template",
+      "label": "Feedback Issue Template",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/assets/feedback-issue-template.md"
+    },
+    {
+      "id": "agents_skills_supabase_references_skill_feedback",
+      "label": "Skill Feedback Guide",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/references/skill-feedback.md"
+    },
+    {
+      "id": "docs_app_flow",
+      "label": "App Flow",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md"
+    },
+    {
+      "id": "docs_prd",
+      "label": "Product Requirements Document (PRD)",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/PRD.md"
+    },
+    {
+      "id": "docs_trd",
+      "label": "Technical Requirements Document (TRD)",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md"
+    },
+    {
+      "id": "docs_ui_ux_design_brief",
+      "label": "UI/UX Design Brief",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/UI-UX Design Brief.md"
     }
   ],
   "edges": [
@@ -411,6 +543,86 @@
       "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-batch-inserts.md",
       "source_location": null,
       "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_query_composite_indexes",
+      "target": "agents_skills_supabase_postgres_best_practices_references_query_index_types",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md"
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_query_covering_indexes",
+      "target": "agents_skills_supabase_postgres_best_practices_references_query_index_types",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-covering-indexes.md"
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_query_partial_indexes",
+      "target": "agents_skills_supabase_postgres_best_practices_references_query_index_types",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-partial-indexes.md"
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_query_missing_indexes",
+      "target": "agents_skills_supabase_postgres_best_practices_references_schema_foreign_key_indexes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-missing-indexes.md"
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_security_rls_performance",
+      "target": "agents_skills_supabase_postgres_best_practices_references_security_rls_basics",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-performance.md"
+    },
+    {
+      "source": "docs_app_flow",
+      "target": "docs_prd",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md"
+    },
+    {
+      "source": "docs_app_flow",
+      "target": "docs_trd",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md"
+    },
+    {
+      "source": "docs_trd",
+      "target": "docs_prd",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md"
+    },
+    {
+      "source": "docs_ui_ux_design_brief",
+      "target": "docs_prd",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/UI-UX Design Brief.md"
+    },
+    {
+      "source": "agents_skills_supabase_references_skill_feedback",
+      "target": "agents_skills_supabase_assets_feedback_issue_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/references/skill-feedback.md"
     }
   ],
   "hyperedges": [
@@ -453,6 +665,49 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md"
+    },
+    {
+      "id": "postgres_indexing_strategies",
+      "label": "PostgreSQL Indexing Strategies",
+      "nodes": [
+        "agents_skills_supabase_postgres_best_practices_references_query_composite_indexes",
+        "agents_skills_supabase_postgres_best_practices_references_query_covering_indexes",
+        "agents_skills_supabase_postgres_best_practices_references_query_index_types",
+        "agents_skills_supabase_postgres_best_practices_references_query_missing_indexes",
+        "agents_skills_supabase_postgres_best_practices_references_query_partial_indexes",
+        "agents_skills_supabase_postgres_best_practices_references_schema_foreign_key_indexes"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-index-types.md"
+    },
+    {
+      "id": "supabase_security_model",
+      "label": "Supabase Security Model",
+      "nodes": [
+        "agents_skills_supabase_postgres_best_practices_references_security_privileges",
+        "agents_skills_supabase_postgres_best_practices_references_security_rls_basics",
+        "agents_skills_supabase_postgres_best_practices_references_security_rls_performance"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-basics.md"
+    },
+    {
+      "id": "project_foundational_docs",
+      "label": "Project Foundational Documents",
+      "nodes": [
+        "docs_prd",
+        "docs_trd",
+        "docs_app_flow",
+        "docs_ui_ux_design_brief"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/PRD.md"
     }
   ],
   "input_tokens": 0,
