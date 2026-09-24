@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ArrowLeft, Mail } from "lucide-react";
+import { ArrowRight, CheckCircle2, ArrowLeft, AlertCircle } from "lucide-react";
 import {
   Card,
   CardHeader,
@@ -13,20 +13,29 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { authService } from "@/services/auth.service";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = React.useState("");
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
+  const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMsg(null);
 
-    setTimeout(() => {
+    const response = await authService.resetPassword(email);
+
+    if (!response.success) {
+      setErrorMsg(response.error?.message || "Failed to dispatch password recovery link.");
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 600);
+      return;
+    }
+
+    setIsSubmitting(false);
+    setIsSuccess(true);
   };
 
   return (
@@ -59,6 +68,13 @@ export default function ForgotPasswordPage() {
       ) : (
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
+            {errorMsg && (
+              <div className="flex items-center gap-2 rounded-md bg-destructive/10 p-3 text-xs text-destructive">
+                <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                <span>{errorMsg}</span>
+              </div>
+            )}
+
             <div className="space-y-1">
               <label className="text-xs font-medium text-brand-forest">
                 Registered Email Address
@@ -66,7 +82,7 @@ export default function ForgotPasswordPage() {
               <div className="relative">
                 <Input
                   type="email"
-                  placeholder="eleanor.vance@mindfulliving.org"
+                  placeholder="customer@auraearth.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
