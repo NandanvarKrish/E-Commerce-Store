@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { createClient } from "@/utils/supabase/client";
+import { authService } from "@/services/auth.service";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -38,35 +38,28 @@ export default function RegisterPage() {
       return;
     }
 
-    try {
-      const supabase = createClient();
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-          },
-        },
-      });
+    if (password.length < 6) {
+      setErrorMsg("Password must be at least 6 characters long.");
+      setIsLoading(false);
+      return;
+    }
 
-      if (error) {
-        setErrorMsg(error.message);
-        setIsLoading(false);
-        return;
-      }
+    const response = await authService.signUp(email, password, fullName);
 
-      if (data.session) {
-        router.push("/");
-        router.refresh();
-      } else {
-        setSuccessMsg(
-          "Registration successful! Please check your email inbox to verify your account or proceed to sign in."
-        );
-      }
-    } catch (err) {
-      setErrorMsg(err instanceof Error ? err.message : "Failed to create account");
-    } finally {
+    if (!response.success) {
+      setErrorMsg(response.error?.message || "Failed to create account.");
+      setIsLoading(false);
+      return;
+    }
+
+    // If session is immediately returned (e.g. autoconfirm enabled)
+    if (response.data?.session) {
+      router.push("/account");
+      router.refresh();
+    } else {
+      setSuccessMsg(
+        "Registration submitted! If email verification is enabled on your project, please check your inbox to confirm your account."
+      );
       setIsLoading(false);
     }
   };
