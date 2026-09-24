@@ -10,7 +10,7 @@ export type UserRole = "customer" | "admin";
 export type OrderStatus = "pending" | "processing" | "shipped" | "delivered" | "cancelled";
 export type PaymentStatus = "pending" | "paid" | "failed" | "refunded";
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       profiles: {
