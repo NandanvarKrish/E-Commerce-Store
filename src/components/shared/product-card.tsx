@@ -30,10 +30,10 @@ export function ProductCard({
 
   const isFavorited = isInWishlist(product.id);
 
-  const handleWishlistClick = (e: React.MouseEvent) => {
+  const handleWishlistClick = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const added = toggleWishlist(product);
+    const added = await toggleWishlist(product);
     toast({
       title: added ? "Saved to wishlist" : "Removed from wishlist",
       description: `${product.name} has been ${added ? "added to" : "removed from"} your saved items.`,

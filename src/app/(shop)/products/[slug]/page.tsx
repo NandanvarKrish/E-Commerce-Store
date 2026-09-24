@@ -178,8 +178,8 @@ export default function ProductDetailPage() {
     }, 250);
   };
 
-  const handleWishlistToggle = () => {
-    const added = toggleWishlist(product);
+  const handleWishlistToggle = async () => {
+    const added = await toggleWishlist(product);
     toast({
       title: added ? "Saved to wishlist" : "Removed from wishlist",
       description: `${product.name} has been ${added ? "added to" : "removed from"} your saved collection.`,

@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Plus, Minus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
+import { Plus, Minus, Trash2, ShoppingBag, ArrowRight, AlertCircle, AlertTriangle } from "lucide-react";
 import { Drawer, DrawerHeader, DrawerContent, DrawerFooter } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { useUIStore } from "@/stores/use-ui-store";
 import { useCartStore } from "@/stores/use-cart-store";
 import { formatCurrency } from "@/utils/formatters";
@@ -17,6 +18,7 @@ export function CartDrawer() {
     removeItem,
     getSubtotal,
     getTotalItems,
+    hasOutOfStockItems,
   } = useCartStore();
 
   const subtotal = getSubtotal();
@@ -28,6 +30,8 @@ export function CartDrawer() {
     Math.round((subtotal / freeShippingThreshold) * 100)
   );
 
+  const outOfStockPresent = hasOutOfStockItems();
+
   return (
     <Drawer
       open={isCartDrawerOpen}
@@ -38,7 +42,7 @@ export function CartDrawer() {
       <DrawerHeader onClose={() => setCartDrawerOpen(false)}>
         <div className="flex items-center gap-2">
           <ShoppingBag className="h-5 w-5 text-brand-forest" />
-          <h2 className="font-display text-lg font-bold text-brand-forest">
+          <h2 className="font-editorial text-lg font-bold text-brand-forest">
             Shopping Bag ({totalCount})
           </h2>
         </div>
@@ -62,6 +66,14 @@ export function CartDrawer() {
             />
           </div>
         </div>
+
+        {/* Out of Stock Warning Banner */}
+        {outOfStockPresent && (
+          <div className="flex items-center gap-2 bg-rose-50 p-3 text-xs text-rose-800 border-b border-rose-200">
+            <AlertCircle className="h-4 w-4 flex-shrink-0" />
+            <span>One or more items are out of stock. Please remove them to proceed.</span>
+          </div>
+        )}
 
         {/* Cart Item List */}
         {items.length === 0 ? (
@@ -88,7 +100,12 @@ export function CartDrawer() {
         ) : (
           <div className="divide-y divide-brand-forest/10 p-4 space-y-4">
             {items.map((item) => (
-              <div key={item.id} className="flex gap-3 pt-3 first:pt-0">
+              <div
+                key={item.id}
+                className={`flex gap-3 pt-3 first:pt-0 ${
+                  item.isOutOfStock || item.isDeleted ? "opacity-60" : ""
+                }`}
+              >
                 <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-brand-forest/5">
                   <Image
                     src={item.image}
@@ -97,6 +114,13 @@ export function CartDrawer() {
                     sizes="80px"
                     className="object-cover"
                   />
+                  {(item.isOutOfStock || item.isDeleted) && (
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <span className="text-[10px] font-mono text-white bg-black/60 px-1 py-0.5 rounded">
+                        Sold Out
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex flex-1 flex-col justify-between">
@@ -123,6 +147,23 @@ export function CartDrawer() {
                         {[item.color, item.size].filter(Boolean).join(" · ")}
                       </p>
                     )}
+
+                    {/* Stock Warning Tags */}
+                    {item.isDeleted ? (
+                      <p className="text-[11px] font-mono text-rose-700 mt-1 flex items-center gap-1">
+                        <AlertTriangle className="h-3 w-3" />
+                        No longer available
+                      </p>
+                    ) : item.isOutOfStock ? (
+                      <p className="text-[11px] font-mono text-rose-700 mt-1 flex items-center gap-1">
+                        <AlertCircle className="h-3 w-3" />
+                        Out of stock in studio
+                      </p>
+                    ) : item.isInsufficientStock ? (
+                      <p className="text-[11px] font-mono text-amber-700 mt-1">
+                        Only {item.availableStock} remaining
+                      </p>
+                    ) : null}
                   </div>
 
                   <div className="flex items-center justify-between mt-2">
@@ -130,7 +171,8 @@ export function CartDrawer() {
                     <div className="flex items-center rounded border border-brand-forest/20 bg-background font-mono text-xs">
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="p-1 text-muted-foreground hover:text-brand-forest transition-colors"
+                        disabled={item.isOutOfStock || item.isDeleted}
+                        className="p-1 text-muted-foreground hover:text-brand-forest transition-colors disabled:opacity-30"
                         aria-label="Decrease quantity"
                       >
                         <Minus className="h-3 w-3" />
@@ -140,7 +182,12 @@ export function CartDrawer() {
                       </span>
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="p-1 text-muted-foreground hover:text-brand-forest transition-colors"
+                        disabled={
+                          item.isOutOfStock ||
+                          item.isDeleted ||
+                          item.quantity >= item.availableStock
+                        }
+                        className="p-1 text-muted-foreground hover:text-brand-forest transition-colors disabled:opacity-30"
                         aria-label="Increase quantity"
                       >
                         <Plus className="h-3 w-3" />
@@ -181,7 +228,7 @@ export function CartDrawer() {
               size="lg"
             >
               <Link href="/cart">
-                <span>View Bag & Checkout</span>
+                <span>View Bag & Summary</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

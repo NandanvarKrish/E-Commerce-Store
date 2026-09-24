@@ -715,8 +715,8 @@ export default function ShopProductsPage() {
 
                           <div className="flex items-center gap-2">
                             <button
-                              onClick={() => {
-                                const added = toggleWishlist(product);
+                              onClick={async () => {
+                                const added = await toggleWishlist(product);
                                 toast({
                                   title: added ? "Saved to wishlist" : "Removed from wishlist",
                                   description: `${product.name} saved.`,

@@ -77,6 +77,8 @@ export function ShopHeader() {
   React.useEffect(() => {
     setMounted(true);
     fetchUserData();
+    useCartStore.getState().init();
+    useWishlistStore.getState().init();
 
     const supabase = createClient();
     const {
@@ -84,8 +86,12 @@ export function ShopHeader() {
     } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user) {
         fetchUserData();
+        useCartStore.getState().init();
+        useWishlistStore.getState().init();
       } else {
         setCurrentUser(null);
+        useCartStore.getState().init();
+        useWishlistStore.getState().init();
       }
     });
 
@@ -99,6 +105,8 @@ export function ShopHeader() {
     await authService.signOut();
     setCurrentUser(null);
     closeMobileMenu();
+    useCartStore.getState().clearCart();
+    useWishlistStore.getState().clearWishlist();
     router.push("/");
     router.refresh();
   };
