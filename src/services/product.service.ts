@@ -232,11 +232,11 @@ export class ProductService {
 
       // Category filter
       if (category && category !== "all") {
-        const { data: catData } = await this.client
+        const { data: catData } = (await this.client
           .from("categories")
           .select("id")
           .eq("slug", category)
-          .single();
+          .single()) as { data: { id: string } | null; error: unknown };
 
         if (catData) {
           query = query.eq("category_id", catData.id);
@@ -245,11 +245,11 @@ export class ProductService {
 
       // Brand filter
       if (brand && brand !== "all") {
-        const { data: brandData } = await this.client
+        const { data: brandData } = (await this.client
           .from("brands")
           .select("id")
           .eq("slug", brand)
-          .single();
+          .single()) as { data: { id: string } | null; error: unknown };
 
         if (brandData) {
           query = query.eq("brand_id", brandData.id);
@@ -382,10 +382,13 @@ export class ProductService {
       // Enhance reviews with reviewer profile details
       if (raw.reviews && raw.reviews.length > 0) {
         const userIds = Array.from(new Set(raw.reviews.map((r) => r.user_id)));
-        const { data: profiles } = await this.client
+        const { data: profiles } = (await this.client
           .from("profiles")
           .select("id, full_name, avatar_url")
-          .in("id", userIds);
+          .in("id", userIds)) as {
+          data: Array<{ id: string; full_name: string | null; avatar_url: string | null }> | null;
+          error: unknown;
+        };
 
         const profileMap = new Map((profiles || []).map((p) => [p.id, p]));
         raw.reviews.forEach((r) => {
@@ -406,19 +409,31 @@ export class ProductService {
    */
   async getCategories(): Promise<Category[]> {
     try {
-      const { data: categories, error } = await this.client
+      const { data: categories, error } = (await this.client
         .from("categories")
-        .select("id, name, slug, description, image_url");
+        .select("id, name, slug, description, image_url")) as {
+        data: Array<{
+          id: string;
+          name: string;
+          slug: string;
+          description: string | null;
+          image_url: string | null;
+        }> | null;
+        error: unknown;
+      };
 
       if (error || !categories || categories.length === 0) {
         return CATEGORIES;
       }
 
       // Count products per category
-      const { data: productCounts } = await this.client
+      const { data: productCounts } = (await this.client
         .from("products")
         .select("category_id")
-        .eq("is_active", true);
+        .eq("is_active", true)) as {
+        data: Array<{ category_id: string | null }> | null;
+        error: unknown;
+      };
 
       const countMap = new Map<string, number>();
       (productCounts || []).forEach((p) => {
@@ -447,9 +462,19 @@ export class ProductService {
    */
   async getBrands(): Promise<Brand[]> {
     try {
-      const { data: brands, error } = await this.client
+      const { data: brands, error } = (await this.client
         .from("brands")
-        .select("id, name, slug, description, logo_url, website");
+        .select("id, name, slug, description, logo_url, website")) as {
+        data: Array<{
+          id: string;
+          name: string;
+          slug: string;
+          description: string | null;
+          logo_url: string | null;
+          website: string | null;
+        }> | null;
+        error: unknown;
+      };
 
       if (error || !brands || brands.length === 0) {
         return [
@@ -460,10 +485,13 @@ export class ProductService {
         ];
       }
 
-      const { data: productCounts } = await this.client
+      const { data: productCounts } = (await this.client
         .from("products")
         .select("brand_id")
-        .eq("is_active", true);
+        .eq("is_active", true)) as {
+        data: Array<{ brand_id: string | null }> | null;
+        error: unknown;
+      };
 
       const countMap = new Map<string, number>();
       (productCounts || []).forEach((p) => {
@@ -510,17 +538,17 @@ export class ProductService {
       }
 
       // Check if user already submitted a review
-      const { data: existing } = await this.client
+      const { data: existing } = (await this.client
         .from("reviews")
         .select("id")
         .eq("product_id", params.productId)
         .eq("user_id", user.id)
-        .maybeSingle();
+        .maybeSingle()) as { data: { id: string } | null; error: unknown };
 
-      let result;
+      let result: { id: string };
       if (existing) {
         // Update review
-        const { data, error } = await (this.client.from("reviews") as any)
+        const { data, error } = (await (this.client.from("reviews") as any)
           .update({
             rating: params.rating,
             title: params.title,
@@ -529,13 +557,13 @@ export class ProductService {
           })
           .eq("id", existing.id)
           .select()
-          .single();
+          .single()) as { data: { id: string } | null; error: unknown };
 
-        if (error) throw error;
+        if (error || !data) throw error || new Error("Failed to update review");
         result = data;
       } else {
         // Insert review
-        const { data, error } = await (this.client.from("reviews") as any)
+        const { data, error } = (await (this.client.from("reviews") as any)
           .insert({
             product_id: params.productId,
             user_id: user.id,
@@ -546,18 +574,21 @@ export class ProductService {
             is_published: true,
           })
           .select()
-          .single();
+          .single()) as { data: { id: string } | null; error: unknown };
 
-        if (error) throw error;
+        if (error || !data) throw error || new Error("Failed to insert review");
         result = data;
       }
 
       // Fetch user profile name
-      const { data: profile } = await this.client
+      const { data: profile } = (await this.client
         .from("profiles")
         .select("full_name, avatar_url")
         .eq("id", user.id)
-        .single();
+        .single()) as {
+        data: { full_name: string | null; avatar_url: string | null } | null;
+        error: unknown;
+      };
 
       return {
         success: true,
