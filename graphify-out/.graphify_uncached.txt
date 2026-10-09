@@ -1,3 +1,9 @@
+/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-audit/SKILL.md
+/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-debt/SKILL.md
+/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-gain/SKILL.md
+/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-help/SKILL.md
+/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-review/SKILL.md
+/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail/SKILL.md
 /Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/CHANGELOG.md
 /Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/SKILL.md
 /Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_contributing.md
@@ -38,7 +44,9 @@
 /Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/SKILL.md
 /Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/assets/feedback-issue-template.md
 /Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/references/skill-feedback.md
+/Users/krishnandanvar/Documents/E-Commerce Store/AGENTS.md
 /Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md
 /Users/krishnandanvar/Documents/E-Commerce Store/Docs/PRD.md
 /Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md
 /Users/krishnandanvar/Documents/E-Commerce Store/Docs/UI-UX Design Brief.md
+/Users/krishnandanvar/Documents/E-Commerce Store/README.md

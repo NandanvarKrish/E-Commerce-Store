@@ -1,47 +1,80 @@
 {
   "nodes": [
     {
+      "id": "agents_skills_ponytail_skill",
+      "label": "Ponytail Skill",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_ponytail_review_skill",
+      "label": "Ponytail Review Skill",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-review/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_ponytail_audit_skill",
+      "label": "Ponytail Audit Skill",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-audit/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_ponytail_debt_skill",
+      "label": "Ponytail Debt Skill",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-debt/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_ponytail_gain_skill",
+      "label": "Ponytail Gain Skill",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-gain/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_ponytail_help_skill",
+      "label": "Ponytail Help Skill",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-help/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
       "id": "agents_skills_supabase_postgres_best_practices_skill",
       "label": "Supabase Postgres Best Practices Skill",
-      "file_type": "document",
+      "file_type": "concept",
       "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": "supabase",
-      "contributor": null
-    },
-    {
-      "id": "agents_skills_supabase_postgres_best_practices_references_sections",
-      "label": "Postgres Rule Categories",
-      "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "agents_skills_supabase_postgres_best_practices_references_template",
-      "label": "Postgres Reference Template",
-      "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_template.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "agents_skills_supabase_postgres_best_practices_references_contributing",
-      "label": "Writing Guidelines for Postgres References",
-      "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_contributing.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
       "contributor": null
     },
     {
@@ -52,7 +85,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -63,7 +96,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -74,7 +107,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -85,7 +118,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -96,7 +129,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -107,7 +140,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -118,7 +151,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -129,7 +162,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -140,7 +173,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -151,7 +184,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -162,7 +195,7 @@
       "source_location": null,
       "source_url": null,
       "captured_at": null,
-      "author": null,
+      "author": "supabase",
       "contributor": null
     },
     {
@@ -221,152 +254,423 @@
       "contributor": null
     },
     {
+      "id": "agents_skills_supabase_postgres_best_practices_references_monitor_vacuum_analyze",
+      "label": "Maintain Table Statistics with VACUUM and ANALYZE",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/monitor-vacuum-analyze.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
       "id": "agents_skills_supabase_postgres_best_practices_references_query_composite_indexes",
       "label": "Create Composite Indexes for Multi-Column Queries",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_query_covering_indexes",
       "label": "Use Covering Indexes to Avoid Table Lookups",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-covering-indexes.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-covering-indexes.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_query_index_types",
       "label": "Choose the Right Index Type for Your Data",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-index-types.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-index-types.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_query_missing_indexes",
       "label": "Add Indexes on WHERE and JOIN Columns",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-missing-indexes.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-missing-indexes.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_query_partial_indexes",
       "label": "Use Partial Indexes for Filtered Queries",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-partial-indexes.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-partial-indexes.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_schema_constraints",
       "label": "Add Constraints Safely in Migrations",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-constraints.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-constraints.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_schema_data_types",
       "label": "Choose Appropriate Data Types",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-data-types.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-data-types.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_schema_foreign_key_indexes",
       "label": "Index Foreign Key Columns",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_schema_lowercase_identifiers",
       "label": "Use Lowercase Identifiers for Compatibility",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_schema_partitioning",
       "label": "Partition Large Tables for Better Performance",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-partitioning.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-partitioning.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_schema_primary_keys",
       "label": "Select Optimal Primary Key Strategy",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-primary-keys.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-primary-keys.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_security_privileges",
       "label": "Apply Principle of Least Privilege",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-privileges.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-privileges.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_security_rls_basics",
       "label": "Enable Row Level Security for Multi-Tenant Data",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-basics.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-basics.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_postgres_best_practices_references_security_rls_performance",
       "label": "Optimize RLS Policies for Performance",
       "file_type": "rationale",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-performance.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-performance.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_changelog",
-      "label": "Supabase Skill Changelog",
+      "label": "Supabase Changelog",
       "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/CHANGELOG.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/CHANGELOG.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "agents_skills_supabase_skill",
-      "label": "Supabase Skill Definition",
+      "label": "Supabase Skill",
       "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/SKILL.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "supabase",
+      "contributor": null
     },
     {
-      "id": "agents_skills_supabase_assets_feedback_issue_template",
-      "label": "Feedback Issue Template",
+      "id": "readme",
+      "label": "Aura & Earth",
       "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/assets/feedback-issue-template.md"
-    },
-    {
-      "id": "agents_skills_supabase_references_skill_feedback",
-      "label": "Skill Feedback Guide",
-      "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/references/skill-feedback.md"
-    },
-    {
-      "id": "docs_app_flow",
-      "label": "App Flow",
-      "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "docs_prd",
       "label": "Product Requirements Document (PRD)",
       "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/PRD.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "docs_trd",
       "label": "Technical Requirements Document (TRD)",
       "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "docs_app_flow",
+      "label": "App Flow",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     },
     {
       "id": "docs_ui_ux_design_brief",
       "label": "UI/UX Design Brief",
       "file_type": "document",
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/UI-UX Design Brief.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/UI-UX Design Brief.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents",
+      "label": "Project Instructions",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_references_skill_feedback",
+      "label": "Skill Feedback Instructions",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/references/skill-feedback.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_skills_supabase_assets_feedback_issue_template",
+      "label": "Feedback Issue Template",
+      "file_type": "document",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/assets/feedback-issue-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_customer_flow",
+      "label": "Customer Flow",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_admin_flow",
+      "label": "Admin Flow",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_ai_shopping_assistant",
+      "label": "AI Shopping Assistant",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "rationale_premium_organic_direction",
+      "label": "Premium Organic Brand Direction",
+      "file_type": "rationale",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/UI-UX Design Brief.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_supabase_backend",
+      "label": "Supabase Backend",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_gemini_api",
+      "label": "Google Gemini API",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_postgresql_database",
+      "label": "PostgreSQL Database",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_nextjs_frontend",
+      "label": "Next.js Frontend",
+      "file_type": "concept",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
     }
   ],
   "edges": [
     {
-      "source": "agents_skills_supabase_postgres_best_practices_skill",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
-      "relation": "references",
+      "source": "agents_skills_ponytail_review_skill",
+      "target": "agents_skills_ponytail_skill",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/SKILL.md",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-review/SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_ponytail_audit_skill",
+      "target": "agents_skills_ponytail_skill",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-audit/SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_ponytail_debt_skill",
+      "target": "agents_skills_ponytail_skill",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-debt/SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_ponytail_gain_skill",
+      "target": "agents_skills_ponytail_skill",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-gain/SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_ponytail_help_skill",
+      "target": "agents_skills_ponytail_skill",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-help/SKILL.md",
       "source_location": null,
       "weight": 1.0
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_advanced_full_text_search",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -376,7 +680,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_advanced_jsonb_indexing",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -386,7 +690,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_conn_idle_timeout",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -396,7 +700,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_conn_limits",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -406,7 +710,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_conn_pooling",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -416,7 +720,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_conn_prepared_statements",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -426,7 +730,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_data_batch_inserts",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -436,7 +740,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_data_n_plus_one",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -446,7 +750,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_data_pagination",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -456,7 +760,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_data_upsert",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -466,7 +770,7 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_lock_advisory",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_skill",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -476,37 +780,27 @@
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_lock_deadlock_prevention",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_references_lock_short_transactions",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.95,
+      "confidence_score": 0.85,
       "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
       "source_location": null,
       "weight": 1.0
     },
     {
       "source": "agents_skills_supabase_postgres_best_practices_references_lock_short_transactions",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_references_lock_skip_locked",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.95,
+      "confidence_score": 0.85,
       "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-short-transactions.md",
       "source_location": null,
       "weight": 1.0
     },
     {
-      "source": "agents_skills_supabase_postgres_best_practices_references_lock_skip_locked",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-skip-locked.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
       "source": "agents_skills_supabase_postgres_best_practices_references_monitor_explain_analyze",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
+      "target": "agents_skills_supabase_postgres_best_practices_references_monitor_pg_stat_statements",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -515,32 +809,22 @@
       "weight": 1.0
     },
     {
-      "source": "agents_skills_supabase_postgres_best_practices_references_monitor_pg_stat_statements",
-      "target": "agents_skills_supabase_postgres_best_practices_references_sections",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_supabase_postgres_best_practices_references_conn_pooling",
-      "target": "agents_skills_supabase_postgres_best_practices_references_conn_prepared_statements",
+      "source": "agents_skills_supabase_postgres_best_practices_references_monitor_explain_analyze",
+      "target": "agents_skills_supabase_postgres_best_practices_references_monitor_vacuum_analyze",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/conn-pooling.md",
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
       "source_location": null,
       "weight": 1.0
     },
     {
-      "source": "agents_skills_supabase_postgres_best_practices_references_data_batch_inserts",
-      "target": "agents_skills_supabase_postgres_best_practices_references_data_n_plus_one",
-      "relation": "semantically_similar_to",
+      "source": "agents_skills_supabase_postgres_best_practices_references_query_composite_indexes",
+      "target": "agents_skills_supabase_postgres_best_practices_references_query_covering_indexes",
+      "relation": "conceptually_related_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/data-batch-inserts.md",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md",
       "source_location": null,
       "weight": 1.0
     },
@@ -550,71 +834,229 @@
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md",
+      "source_location": null,
+      "weight": 1.0
     },
     {
-      "source": "agents_skills_supabase_postgres_best_practices_references_query_covering_indexes",
-      "target": "agents_skills_supabase_postgres_best_practices_references_query_index_types",
+      "source": "agents_skills_supabase_postgres_best_practices_references_query_composite_indexes",
+      "target": "agents_skills_supabase_postgres_best_practices_references_query_missing_indexes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_query_composite_indexes",
+      "target": "agents_skills_supabase_postgres_best_practices_references_query_partial_indexes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_schema_constraints",
+      "target": "agents_skills_supabase_postgres_best_practices_references_schema_data_types",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-covering-indexes.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-constraints.md",
+      "source_location": null,
+      "weight": 1.0
     },
     {
-      "source": "agents_skills_supabase_postgres_best_practices_references_query_partial_indexes",
-      "target": "agents_skills_supabase_postgres_best_practices_references_query_index_types",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-partial-indexes.md"
-    },
-    {
-      "source": "agents_skills_supabase_postgres_best_practices_references_query_missing_indexes",
+      "source": "agents_skills_supabase_postgres_best_practices_references_schema_constraints",
       "target": "agents_skills_supabase_postgres_best_practices_references_schema_foreign_key_indexes",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-missing-indexes.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-constraints.md",
+      "source_location": null,
+      "weight": 1.0
     },
     {
-      "source": "agents_skills_supabase_postgres_best_practices_references_security_rls_performance",
+      "source": "agents_skills_supabase_postgres_best_practices_references_schema_foreign_key_indexes",
+      "target": "agents_skills_supabase_postgres_best_practices_references_query_missing_indexes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_schema_partitioning",
+      "target": "agents_skills_supabase_postgres_best_practices_references_schema_primary_keys",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/schema-partitioning.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_postgres_best_practices_references_security_privileges",
       "target": "agents_skills_supabase_postgres_best_practices_references_security_rls_basics",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-performance.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-privileges.md",
+      "source_location": null,
+      "weight": 1.0
     },
     {
-      "source": "docs_app_flow",
+      "source": "agents_skills_supabase_postgres_best_practices_references_security_rls_basics",
+      "target": "agents_skills_supabase_postgres_best_practices_references_security_rls_performance",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-basics.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_supabase_skill",
+      "target": "agents_skills_supabase_changelog",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/SKILL.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme",
       "target": "docs_prd",
       "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md"
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/README.md",
+      "source_location": null,
+      "weight": 1.0
     },
     {
-      "source": "docs_app_flow",
+      "source": "readme",
       "target": "docs_trd",
       "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md"
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme",
+      "target": "docs_app_flow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme",
+      "target": "docs_ui_ux_design_brief",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "docs_prd",
+      "target": "concept_gemini_api",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/PRD.md",
+      "source_location": null,
+      "weight": 1.0
     },
     {
       "source": "docs_trd",
-      "target": "docs_prd",
+      "target": "concept_supabase_backend",
       "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md"
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "docs_trd",
+      "target": "concept_postgresql_database",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "docs_app_flow",
+      "target": "concept_customer_flow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "docs_app_flow",
+      "target": "concept_admin_flow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "docs_app_flow",
+      "target": "concept_ai_shopping_assistant",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md",
+      "source_location": null,
+      "weight": 1.0
     },
     {
       "source": "docs_ui_ux_design_brief",
-      "target": "docs_prd",
-      "relation": "references",
+      "target": "rationale_premium_organic_direction",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/UI-UX Design Brief.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_ai_shopping_assistant",
+      "target": "concept_gemini_api",
+      "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/UI-UX Design Brief.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/App Flow.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_supabase_backend",
+      "target": "concept_postgresql_database",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/TRD.md",
+      "source_location": null,
+      "weight": 1.0
     },
     {
       "source": "agents_skills_supabase_references_skill_feedback",
@@ -622,29 +1064,32 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/references/skill-feedback.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase/references/skill-feedback.md",
+      "source_location": null,
+      "weight": 1.0
     }
   ],
   "hyperedges": [
     {
-      "id": "connection_management_cluster",
-      "label": "Connection Management Best Practices",
+      "id": "ponytail_skill_suite",
+      "label": "Ponytail Skill Suite",
       "nodes": [
-        "agents_skills_supabase_postgres_best_practices_references_conn_idle_timeout",
-        "agents_skills_supabase_postgres_best_practices_references_conn_limits",
-        "agents_skills_supabase_postgres_best_practices_references_conn_pooling",
-        "agents_skills_supabase_postgres_best_practices_references_conn_prepared_statements"
+        "agents_skills_ponytail_skill",
+        "agents_skills_ponytail_review_skill",
+        "agents_skills_ponytail_audit_skill",
+        "agents_skills_ponytail_debt_skill",
+        "agents_skills_ponytail_gain_skill",
+        "agents_skills_ponytail_help_skill"
       ],
       "relation": "form",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md"
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/ponytail-help/SKILL.md"
     },
     {
-      "id": "concurrency_locking_cluster",
-      "label": "Concurrency and Locking Best Practices",
+      "id": "postgres_locking_strategies",
+      "label": "Postgres Locking and Concurrency Strategies",
       "nodes": [
-        "agents_skills_supabase_postgres_best_practices_references_lock_advisory",
         "agents_skills_supabase_postgres_best_practices_references_lock_deadlock_prevention",
         "agents_skills_supabase_postgres_best_practices_references_lock_short_transactions",
         "agents_skills_supabase_postgres_best_practices_references_lock_skip_locked"
@@ -652,23 +1097,11 @@
       "relation": "form",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/lock-deadlock-prevention.md"
     },
     {
-      "id": "monitoring_diagnostics_cluster",
-      "label": "Monitoring and Diagnostics Best Practices",
-      "nodes": [
-        "agents_skills_supabase_postgres_best_practices_references_monitor_explain_analyze",
-        "agents_skills_supabase_postgres_best_practices_references_monitor_pg_stat_statements"
-      ],
-      "relation": "form",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/_sections.md"
-    },
-    {
-      "id": "postgres_indexing_strategies",
-      "label": "PostgreSQL Indexing Strategies",
+      "id": "postgres_indexing_best_practices",
+      "label": "Postgres Indexing Best Practices",
       "nodes": [
         "agents_skills_supabase_postgres_best_practices_references_query_composite_indexes",
         "agents_skills_supabase_postgres_best_practices_references_query_covering_indexes",
@@ -680,11 +1113,11 @@
       "relation": "form",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-index-types.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/query-composite-indexes.md"
     },
     {
-      "id": "supabase_security_model",
-      "label": "Supabase Security Model",
+      "id": "postgres_security_layer",
+      "label": "Postgres Security Layer",
       "nodes": [
         "agents_skills_supabase_postgres_best_practices_references_security_privileges",
         "agents_skills_supabase_postgres_best_practices_references_security_rls_basics",
@@ -693,21 +1126,20 @@
       "relation": "form",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-rls-basics.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/.agents/skills/supabase-postgres-best-practices/references/security-privileges.md"
     },
     {
-      "id": "project_foundational_docs",
-      "label": "Project Foundational Documents",
+      "id": "core_architecture_stack",
+      "label": "Core Architecture Stack",
       "nodes": [
-        "docs_prd",
-        "docs_trd",
-        "docs_app_flow",
-        "docs_ui_ux_design_brief"
+        "concept_nextjs_frontend",
+        "concept_supabase_backend",
+        "concept_gemini_api"
       ],
       "relation": "form",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
-      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/Docs/PRD.md"
+      "source_file": "/Users/krishnandanvar/Documents/E-Commerce Store/README.md"
     }
   ],
   "input_tokens": 0,
