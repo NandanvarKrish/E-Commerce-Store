@@ -223,13 +223,23 @@ export function CartDrawer() {
             <Button
               onClick={() => setCartDrawerOpen(false)}
               asChild
-              className="w-full gap-2"
-              variant="default"
+              className="w-full gap-2 bg-brand-forest text-brand-cornsilk hover:bg-brand-olive shadow-sm"
               size="lg"
             >
-              <Link href="/cart">
-                <span>View Bag & Summary</span>
+              <Link href="/checkout">
+                <span>Proceed to Checkout</span>
                 <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              onClick={() => setCartDrawerOpen(false)}
+              asChild
+              variant="outline"
+              size="sm"
+              className="w-full text-xs border-brand-forest/20 text-brand-forest"
+            >
+              <Link href="/cart">
+                <span>View Full Shopping Bag</span>
               </Link>
             </Button>
             <Button

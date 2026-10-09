@@ -7,7 +7,14 @@ export type Json =
   | Json[];
 
 export type UserRole = "customer" | "admin";
-export type OrderStatus = "pending" | "processing" | "shipped" | "delivered" | "cancelled";
+export type OrderStatus =
+  | "pending"
+  | "confirmed"
+  | "processing"
+  | "shipped"
+  | "delivered"
+  | "cancelled"
+  | "refunded";
 export type PaymentStatus = "pending" | "paid" | "failed" | "refunded";
 
 export type Database = {
@@ -444,6 +451,10 @@ export type Database = {
           shipping_address: Json;
           billing_address: Json | null;
           notes: string | null;
+          carrier: string | null;
+          tracking_number: string | null;
+          estimated_delivery: string | null;
+          shipping_method: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -463,6 +474,10 @@ export type Database = {
           shipping_address: Json;
           billing_address?: Json | null;
           notes?: string | null;
+          carrier?: string | null;
+          tracking_number?: string | null;
+          estimated_delivery?: string | null;
+          shipping_method?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -482,6 +497,10 @@ export type Database = {
           shipping_address?: Json;
           billing_address?: Json | null;
           notes?: string | null;
+          carrier?: string | null;
+          tracking_number?: string | null;
+          estimated_delivery?: string | null;
+          shipping_method?: string | null;
           created_at?: string;
           updated_at?: string;
         };

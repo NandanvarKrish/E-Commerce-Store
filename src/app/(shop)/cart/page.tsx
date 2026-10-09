@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Trash2,
   Plus,
@@ -47,6 +48,7 @@ export default function CartPage() {
     hasOutOfStockItems,
   } = useCartStore();
 
+  const router = useRouter();
   const { toast } = useToast();
   const [promoInput, setPromoInput] = React.useState("");
   const [isApplying, setIsApplying] = React.useState(false);
@@ -98,11 +100,7 @@ export default function CartPage() {
       return;
     }
 
-    toast({
-      title: "Cart Confirmed",
-      description: "Inventory verified. Proceeding to checkout sanctuary.",
-      variant: "success",
-    });
+    router.push("/checkout");
   };
 
   if (!mounted || isLoading) {

@@ -1,5 +1,9 @@
 import { createClient } from "@/utils/supabase/client";
+import { sortProductImages } from "@/utils/formatters";
 import type { CartItem, CartSummary } from "@/types/cart.types";
+import { Database } from "@/types/database.types";
+
+type ProductImage = Database['public']['Tables']['product_images']['Row'];
 
 interface RawJoinedCartItem {
   id: string;
@@ -14,7 +18,7 @@ interface RawJoinedCartItem {
     compare_at_price: number | string | null;
     is_active: boolean;
     sku: string | null;
-    images?: Array<{ url: string; is_primary: boolean; sort_order: number }> | null;
+    images?: ProductImage[] | null;
     inventory?: Array<{ quantity: number; reserved_quantity: number }> | null;
   } | null;
   variant?: {
@@ -162,12 +166,7 @@ export class CartService {
         }
 
         // 5. Image sorting
-        const rawImages = prod.images ? [...prod.images] : [];
-        rawImages.sort((a, b) => {
-          if (a.is_primary) return -1;
-          if (b.is_primary) return 1;
-          return a.sort_order - b.sort_order;
-        });
+        const rawImages = sortProductImages(prod.images);
         const image = rawImages[0]?.url || "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80&w=600";
 
         return {
@@ -514,16 +513,21 @@ export class CartService {
         };
       });
 
-      const subtotal = validated.reduce(
-        (sum, item) => (item.isOutOfStock || item.isDeleted ? sum : sum + item.price * item.quantity),
-        0
+      const totals = validated.reduce(
+        (acc, item) => {
+          if (!item.isOutOfStock && !item.isDeleted) {
+            acc.subtotal += item.price * item.quantity;
+          }
+          acc.totalItems += item.quantity;
+          return acc;
+        },
+        { subtotal: 0, totalItems: 0 }
       );
-      const totalItems = validated.reduce((sum, item) => sum + item.quantity, 0);
 
       return {
         items: validated,
-        subtotal,
-        totalItems,
+        subtotal: totals.subtotal,
+        totalItems: totals.totalItems,
         hasErrors: errors.length > 0,
         errors,
       };
@@ -553,19 +557,22 @@ export class CartService {
     try {
       const cartId = await this.getOrCreateCartId(user.id);
 
-      // Upsert each valid guest item into cart_items
-      for (const item of guestItems) {
-        if (!item.isDeleted && !item.isOutOfStock) {
-          await (this.client.from("cart_items") as any).upsert(
-            {
-              cart_id: cartId,
-              product_id: item.productId,
-              variant_id: item.variantId || null,
-              quantity: item.quantity,
-            },
-            { onConflict: "cart_id, product_id, variant_id" }
-          );
-        }
+      // Bulk upsert guest items into cart_items
+      const itemsToUpsert = guestItems
+        .filter((item) => !item.isDeleted && !item.isOutOfStock)
+        .map((item) => ({
+          cart_id: cartId,
+          product_id: item.productId,
+          variant_id: item.variantId || null,
+          quantity: item.quantity,
+        }));
+
+      if (itemsToUpsert.length > 0) {
+        const { error } = await (this.client.from("cart_items") as any).upsert(
+          itemsToUpsert,
+          { onConflict: "cart_id, product_id, variant_id" }
+        );
+        if (error) throw error;
       }
 
       return this.getCart();

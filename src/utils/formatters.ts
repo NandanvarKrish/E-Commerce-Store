@@ -1,3 +1,19 @@
+import { Database } from "@/types/database.types";
+
+type ProductImage = Database['public']['Tables']['product_images']['Row'];
+
+/**
+ * Sorts product images: primary first, then by sort order.
+ */
+export function sortProductImages(images: ProductImage[] | null | undefined): ProductImage[] {
+  if (!images) return [];
+  return [...images].sort((a, b) => {
+    if (a.is_primary) return -1;
+    if (b.is_primary) return 1;
+    return a.sort_order - b.sort_order;
+  });
+}
+
 /**
  * Formats a number as a localized currency string.
  */
