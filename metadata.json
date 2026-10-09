@@ -1,0 +1,6 @@
+{
+  "name": "Aura & Earth",
+  "description": "Modern organic luxury goods and mindful lifestyle essentials.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
