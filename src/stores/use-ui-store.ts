@@ -6,6 +6,7 @@ interface UIState {
   isSearchOpen: boolean;
   isCartDrawerOpen: boolean;
   isFilterDrawerOpen: boolean;
+  isAiAssistantOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
   toggleMobileMenu: () => void;
   closeMobileMenu: () => void;
@@ -17,6 +18,8 @@ interface UIState {
   toggleCartDrawer: () => void;
   setFilterDrawerOpen: (open: boolean) => void;
   toggleFilterDrawer: () => void;
+  setAiAssistantOpen: (open: boolean) => void;
+  toggleAiAssistant: () => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -25,6 +28,7 @@ export const useUIStore = create<UIState>((set) => ({
   isSearchOpen: false,
   isCartDrawerOpen: false,
   isFilterDrawerOpen: false,
+  isAiAssistantOpen: false,
   setMobileMenuOpen: (open) => set({ isMobileMenuOpen: open }),
   toggleMobileMenu: () => set((state) => ({ isMobileMenuOpen: !state.isMobileMenuOpen })),
   closeMobileMenu: () => set({ isMobileMenuOpen: false }),
@@ -36,4 +40,6 @@ export const useUIStore = create<UIState>((set) => ({
   toggleCartDrawer: () => set((state) => ({ isCartDrawerOpen: !state.isCartDrawerOpen })),
   setFilterDrawerOpen: (open) => set({ isFilterDrawerOpen: open }),
   toggleFilterDrawer: () => set((state) => ({ isFilterDrawerOpen: !state.isFilterDrawerOpen })),
+  setAiAssistantOpen: (open) => set({ isAiAssistantOpen: open }),
+  toggleAiAssistant: () => set((state) => ({ isAiAssistantOpen: !state.isAiAssistantOpen })),
 }));

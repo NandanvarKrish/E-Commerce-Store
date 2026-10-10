@@ -19,10 +19,12 @@ import { ProductCard } from "@/components/shared/product-card";
 import { CategoryCard } from "@/components/shared/category-card";
 import { GeminiKeyCard } from "@/components/shared/gemini-key-card";
 import { productService } from "@/services/product.service";
+import { useUIStore } from "@/stores/use-ui-store";
 import type { Product, Category } from "@/types/catalog.types";
 import { PRODUCTS, CATEGORIES } from "@/data/mock-data";
 
 export default function HomePage() {
+  const { setAiAssistantOpen } = useUIStore();
   const [selectedCategoryTab, setSelectedCategoryTab] = React.useState<string>("all");
   const [allProducts, setAllProducts] = React.useState<Product[]>(PRODUCTS);
   const [categories, setCategories] = React.useState<Category[]>(CATEGORIES);
@@ -261,10 +263,33 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* 5. INTERACTIVE USER GEMINI KEY CARD */}
+      {/* 5. INTERACTIVE USER GEMINI KEY CARD & CONCIERGE LAUNCHER */}
       <section>
-        <Container size="narrow">
+        <Container size="narrow" className="space-y-4">
           <GeminiKeyCard />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl border border-brand-clay/30 bg-brand-cornsilk/60 shadow-sm">
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-clay/20 text-brand-copper">
+                <Sparkles className="h-4 w-4" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-brand-forest">
+                  Ready to try your AI Shopping Concierge?
+                </p>
+                <p className="text-[11px] text-muted-foreground">
+                  Ask budget questions, compare natural materials, or get curated recommendations.
+                </p>
+              </div>
+            </div>
+            <Button
+              size="sm"
+              onClick={() => setAiAssistantOpen(true)}
+              className="gap-1.5 whitespace-nowrap self-start sm:self-auto"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Launch Concierge</span>
+            </Button>
+          </div>
         </Container>
       </section>
 

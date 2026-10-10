@@ -14,6 +14,7 @@ import {
   Package,
   LogOut,
   ChevronDown,
+  Sparkles,
 } from "lucide-react";
 import { useUIStore } from "@/stores/use-ui-store";
 import { useCartStore } from "@/stores/use-cart-store";
@@ -41,8 +42,14 @@ interface CurrentUserState {
 export function ShopHeader() {
   const pathname = usePathname();
   const router = useRouter();
-  const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu, setSearchOpen, setCartDrawerOpen } =
-    useUIStore();
+  const {
+    isMobileMenuOpen,
+    toggleMobileMenu,
+    closeMobileMenu,
+    setSearchOpen,
+    setCartDrawerOpen,
+    setAiAssistantOpen,
+  } = useUIStore();
   const { getTotalItems } = useCartStore();
   const { items: wishlistItems } = useWishlistStore();
 
@@ -148,6 +155,16 @@ export function ShopHeader() {
 
         {/* Right Action Icons */}
         <div className="flex items-center gap-1 sm:gap-2">
+          {/* AI Shopping Concierge Trigger */}
+          <button
+            onClick={() => setAiAssistantOpen(true)}
+            aria-label="AI Shopping Concierge"
+            className="flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-mono text-brand-forest bg-brand-clay/15 hover:bg-brand-clay/25 transition-all border border-brand-clay/30"
+          >
+            <Sparkles className="h-3.5 w-3.5 text-brand-copper" />
+            <span className="hidden sm:inline font-sans font-medium">AI Concierge</span>
+          </button>
+
           {/* Search Trigger Button */}
           <button
             onClick={() => setSearchOpen(true)}
@@ -278,6 +295,23 @@ export function ShopHeader() {
       {isMobileMenuOpen && (
         <div className="border-b border-brand-forest/10 bg-brand-cornsilk md:hidden animate-in slide-in-from-top-2">
           <Container className="py-4 space-y-3">
+            {/* Mobile AI Concierge Button */}
+            <button
+              onClick={() => {
+                closeMobileMenu();
+                setAiAssistantOpen(true);
+              }}
+              className="flex w-full items-center justify-between rounded-lg border border-brand-clay/30 bg-brand-clay/10 px-3 py-2.5 text-sm text-brand-forest mb-2 font-medium"
+            >
+              <span className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-brand-copper" />
+                <span>AI Shopping Concierge</span>
+              </span>
+              <span className="text-[10px] font-mono text-brand-copper uppercase font-bold bg-white/70 px-1.5 py-0.5 rounded">
+                Ask AI
+              </span>
+            </button>
+
             {/* Mobile Search Bar Button */}
             <button
               onClick={() => {
