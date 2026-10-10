@@ -13,16 +13,25 @@ This project is in active development.
 - The MVP does not include an online payment gateway. Checkout is designed to create an order record and leave payment integration open for a future release.
 - Product pages currently use the catalog in `src/data/mock-data.ts`; Supabase is the target backend for persisted catalog, account, cart, wishlist, and order data.
 
+## Recent platform updates
+
+The database layer and checkout workflow have expanded beyond the MVP foundation:
+
+- Atomic checkout is handled server-side with a `public.place_order()` PostgreSQL function that recalculates totals, validates product availability, verifies live pricing, reserves inventory, and creates an order record in one transaction.
+- The order lifecycle now includes `confirmed` and `refunded` states, plus shipping metadata such as `carrier`, `tracking_number`, `estimated_delivery`, and `shipping_method`.
+- User provisioning automatically creates a profile, shopping cart, and default wishlist for each authenticated user, with app-level roles and protections enforced via Supabase RLS.
+- The catalog has been expanded to a richer curated collection with product metadata, variants, imagery, and inventory data that better matches the premium editorial storefront direction.
+
 ## Features
 
 ### Customer experience
 
 - Responsive storefront homepage with featured products and category discovery
 - Product catalog, product details, search modal, and category filtering
-- Cart drawer and cart page with quantity management
+- Cart drawer, cart page, and checkout flow with shipping and order summary calculations
 - Wishlist and account pages
 - Registration, login, logout, password recovery, and reset-password flows
-- Order history and order detail pages
+- Order history, order detail pages, and shipment tracking states
 - Supabase Auth session handling and protected application areas
 - Gemini API key configuration for the shopping assistant experience
 
@@ -37,14 +46,15 @@ This project is in active development.
 
 ### Backend foundation
 
-The initial Supabase migration includes tables for:
+The Supabase migrations include tables for:
 
 - Profiles, roles, categories, brands, and products
 - Product variants, images, and inventory
 - Carts, cart items, wishlists, and wishlist items
 - Addresses, orders, order items, reviews, and notifications
+- Shipping, tracking, and order-status metadata required for checkout and fulfillment workflows
 
-Database access is protected with PostgreSQL constraints, indexes, helper functions, and Row Level Security policies. See `supabase/migrations/` for the source of truth.
+Database access is protected with PostgreSQL constraints, indexes, helper functions, and Row Level Security policies. The current migrations also add atomic checkout logic through `public.place_order()` and a richer order lifecycle for confirmed and refunded cases. See `supabase/migrations/` for the source of truth.
 
 ## Technology Stack
 
@@ -124,6 +134,8 @@ npm run typecheck # Run the TypeScript compiler without emitting files
 - `/products` - Product catalog
 - `/products/[slug]` - Product details
 - `/cart` - Cart review
+- `/checkout` - Checkout and shipping summary
+- `/checkout/confirmation` - Post-purchase confirmation
 - `/wishlist` - Saved products
 - `/account` - Customer account
 - `/orders` - Order history
